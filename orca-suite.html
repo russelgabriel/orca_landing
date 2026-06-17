@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Orca — Logo suite & mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#F5F6F9; --ink:#0B0E12; --ink60:#535A67; --ink40:#8A909C; --line:#E3E6EB;
+ --b-hi:#2E97FF; --b-mid:#0A6EE0; --b-brand:#0066CC; --b-deep:#003E96; --b-lite:#5EB3FF;
+ --teal:#00A8A8; --dk:#0A0E14;
+ --grad:linear-gradient(145deg, var(--b-hi) 0%, var(--b-mid) 46%, var(--b-deep) 100%);
+ --sheen:radial-gradient(circle at 28% 22%, rgba(150,205,255,.5), rgba(150,205,255,0) 58%);
+}
+*{box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;}
+body{
+ margin:0; background:var(--bg); color:var(--ink);
+ font-family:'Hanken Grotesk',sans-serif; font-size:15px; line-height:1.5;
+ background-image:
+  linear-gradient(to right, rgba(11,14,18,.028) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(11,14,18,.028) 1px, transparent 1px);
+ background-size:32px 32px;
+}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.wm{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; letter-spacing:-0.03em; line-height:1; color:inherit;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--b-brand); outline-offset:2px; border-radius:3px;}
+
+.wrap{max-width:1080px; margin:0 auto; padding:clamp(28px,6vw,64px) clamp(20px,5vw,48px) clamp(56px,9vw,110px);}
+
+/* ---- masthead ---- */
+.head{display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+ border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:clamp(30px,5vw,52px); flex-wrap:wrap;}
+.head h1{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; letter-spacing:-0.03em;
+ font-size:clamp(22px,4vw,32px); margin:0;}
+.head h1 span{color:var(--ink40); font-weight:500;}
+.head .mono{font-size:11px; letter-spacing:.08em; color:var(--ink60);}
+
+/* ---- section eyebrow ---- */
+.section{margin-top:clamp(40px,7vw,76px);}
+.eyebrow{display:flex; align-items:center; gap:14px; margin-bottom:22px;}
+.eyebrow h2{font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:12px;
+ letter-spacing:.14em; text-transform:uppercase; color:var(--ink); margin:0;}
+.eyebrow .rule{flex:1; height:1px; background:var(--line);}
+.eyebrow .n{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--ink40);}
+
+/* ---- grids ---- */
+.grid{display:grid; gap:18px;}
+.g-suite{grid-template-columns:repeat(auto-fit,minmax(248px,1fr));}
+.g-app{grid-template-columns:repeat(2,1fr);}
+.span2{grid-column:1 / -1;}
+@media(max-width:680px){.g-app{grid-template-columns:1fr;}}
+
+/* ---- card ---- */
+.card{background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden;
+ padding-bottom:14px; box-shadow:0 1px 0 rgba(11,14,18,.02);
+ transition:box-shadow .24s cubic-bezier(.2,.7,.2,1), transform .24s cubic-bezier(.2,.7,.2,1);}
+.card:hover{box-shadow:0 18px 40px -26px rgba(0,40,110,.45); transform:translateY(-2px);}
+@media(prefers-reduced-motion:reduce){.card{transition:none;} .card:hover{transform:none;}}
+.stage{display:flex; align-items:center; justify-content:center; gap:20px;
+ padding:clamp(24px,4vw,38px); min-height:150px; color:var(--ink);}
+.stage.dark{background:var(--dk); color:#fff;}
+.meta{display:flex; flex-direction:column; gap:3px; padding:13px 16px 0;}
+.meta .lab{font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.09em;
+ color:var(--ink40); text-transform:uppercase;}
+.meta .desc{font-size:12.5px; color:var(--ink60); line-height:1.5;}
+
+/* ---- gradient surface ---- */
+.grad{position:relative; overflow:hidden; background:var(--grad); background-blend-mode:screen;}
+.grad::before{content:""; position:absolute; inset:0; background:var(--sheen); pointer-events:none;}
+.grad>*{position:relative; z-index:1;}
+
+/* ---- marks ---- */
+.mark{display:block;}
+.float{filter:drop-shadow(0 16px 30px rgba(1,18,52,.45));}
+
+/* lockups */
+.lk{display:inline-flex; align-items:center; gap:14px;}
+.lk .mark{flex:0 0 auto;}
+.lk-v{flex-direction:column; gap:12px; text-align:center;}
+.mono-set{display:flex; align-items:center; gap:1px;}
+
+/* single-color trio */
+.trio{display:flex; gap:14px; align-items:stretch; flex-wrap:wrap; justify-content:center;}
+.chip{width:84px; height:84px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+ border:1px solid var(--line);}
+.chip.dk{background:var(--dk); border-color:transparent;}
+
+/* ---- app icon mock ---- */
+.home{width:100%; max-width:330px; border-radius:24px; padding:30px 0 22px;
+ background:radial-gradient(120% 90% at 50% -10%, #EAF1FB 0%, #F5F6F9 60%);
+ border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; gap:11px;}
+.tile{border-radius:24px; display:flex; align-items:center; justify-content:center;}
+.tile.t-lg{width:104px; height:104px; border-radius:24px;}
+.tile.t-sm{width:52px; height:52px; border-radius:13px;}
+.app-row{display:flex; gap:14px; align-items:flex-end; margin-top:4px;}
+.app-name{font-size:13px; color:var(--ink60); font-weight:500;}
+.app-sub{display:flex; gap:8px; align-items:center; color:var(--ink40); font-size:10px; letter-spacing:.06em;}
+
+/* ---- business card ---- */
+.bcard{width:100%; max-width:320px; aspect-ratio:3.5/2; border-radius:14px; overflow:hidden;
+ box-shadow:0 20px 40px -26px rgba(0,40,110,.4);}
+.bcard.front{background:#fff; border:1px solid var(--line); padding:22px; display:flex; flex-direction:column; justify-content:space-between;}
+.bc-foot{font-size:11.5px; color:var(--ink60); line-height:1.55;}
+.bc-foot strong{color:var(--ink); font-weight:600; font-family:'Schibsted Grotesk',sans-serif; letter-spacing:-.01em;}
+.bc-line{height:2px; width:42px; background:var(--b-brand); border-radius:2px; margin-bottom:12px;}
+.bcard.back{display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px;}
+.bc-tag{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; color:rgba(255,255,255,.82);}
+
+/* ---- product UI ---- */
+.screen{width:100%; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:#fff;}
+.screen.dark{background:var(--dk); border-color:#1b2230;}
+.sc-top{display:flex; align-items:center; justify-content:space-between; gap:12px;
+ padding:14px 18px; border-bottom:1px solid var(--line);}
+.screen.dark .sc-top{border-color:#1b2230;}
+.sc-nav{display:flex; gap:16px; font-size:12px; color:var(--ink40);}
+.screen.dark .sc-nav{color:#6b7689;}
+.sc-nav b{color:var(--ink); font-weight:600;}
+.screen.dark .sc-nav b{color:#fff;}
+.sc-av{width:24px; height:24px; border-radius:50%; background:linear-gradient(145deg,var(--b-hi),var(--b-deep));}
+.sc-body{padding:18px; display:flex; gap:16px; flex-wrap:wrap;}
+.vital{flex:1 1 200px; min-width:180px; border:1px solid var(--line); border-radius:13px; padding:16px;}
+.screen.dark .vital{border-color:#1b2230; background:#11161f;}
+.vital .k{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.09em; color:var(--ink40); text-transform:uppercase;}
+.screen.dark .vital .k{color:#6b7689;}
+.vital .v{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; letter-spacing:-.02em; font-size:30px; margin:6px 0 10px;}
+.vital .v small{font-size:14px; font-weight:500; color:var(--ink40); margin-left:4px;}
+.screen.dark .vital .v{color:#fff;}
+.ecg{width:100%; height:38px; display:block;}
+.sc-side{flex:1 1 150px; min-width:140px; display:flex; flex-direction:column; gap:12px; justify-content:space-between;}
+.stat{border:1px solid var(--line); border-radius:13px; padding:13px 14px;}
+.screen.dark .stat{border-color:#1b2230; background:#11161f;}
+.stat .k{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.09em; color:var(--ink40); text-transform:uppercase;}
+.stat .v{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:-.02em; margin-top:3px;}
+.screen.dark .stat .v{color:#fff;}
+.btn{appearance:none; border:0; cursor:pointer; font-family:'Hanken Grotesk',sans-serif; font-weight:600;
+ font-size:13px; color:#fff; background:var(--b-brand); padding:11px 16px; border-radius:10px; text-align:center;}
+.screen.dark .btn{background:var(--b-hi);}
+
+/* ---- profile header ---- */
+.phead{width:100%; aspect-ratio:3/1; border-radius:14px; display:flex; align-items:center;
+ padding:0 clamp(22px,5vw,46px);}
+
+/* ---- poster / letterhead (portrait) ---- */
+.tall{display:flex; align-items:stretch;}
+.poster{width:100%; aspect-ratio:2/3; border-radius:14px; display:flex; flex-direction:column;
+ align-items:center; justify-content:center; gap:26px; padding:30px; text-align:center;
+ box-shadow:0 24px 50px -30px rgba(0,40,110,.5);}
+.poster .tag{font-family:'Schibsted Grotesk',sans-serif; font-weight:600; letter-spacing:-.02em;
+ font-size:clamp(18px,3.4vw,24px); color:#fff;}
+.poster .foot{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; color:rgba(255,255,255,.78);}
+.letter{width:100%; aspect-ratio:2/3; border-radius:14px; background:#fff; border:1px solid var(--line);
+ padding:26px; display:flex; flex-direction:column;
+ background-image:
+  linear-gradient(to right, rgba(11,14,18,.025) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(11,14,18,.025) 1px, transparent 1px);
+ background-size:22px 22px;}
+.lt-rule{height:2px; width:46px; background:var(--b-brand); border-radius:2px; margin:18px 0 20px;}
+.lt-bars{display:flex; flex-direction:column; gap:9px;}
+.lt-bars i{height:7px; border-radius:4px; background:var(--line); display:block;}
+.lt-foot{margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; color:var(--ink40);}
+
+/* ---- closing rules ---- */
+.rules{margin-top:clamp(40px,7vw,72px); border-top:1px solid var(--line); padding-top:26px;
+ display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+.rules h3{font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:11px; letter-spacing:.1em;
+ text-transform:uppercase; color:var(--ink40); margin:0 0 10px;}
+.rules ul{list-style:none; margin:0; padding:0;}
+.rules li{font-size:13px; color:var(--ink60); line-height:1.6; padding-left:18px; position:relative;}
+.rules li::before{content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:2px;}
+.rules .do li::before{background:var(--b-brand);}
+.rules .dont li::before{background:var(--ink40);}
+@media(max-width:560px){.rules{grid-template-columns:1fr;}}
+
+.foot-mono{margin-top:40px; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+ letter-spacing:.1em; color:var(--ink40); text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- master defs -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+ <defs>
+  <clipPath id="lc"><circle cx="60" cy="60" r="52"/></clipPath>
+  <symbol id="badge" viewBox="0 0 120 120">
+   <circle cx="60" cy="60" r="52" fill="var(--disc,#0B0E12)"/>
+   <path d="M4 70 C30 84 50 86 64 80 C84 72 96 56 116 48 L120 120 L0 120 Z" fill="var(--knock,#FFFFFF)" clip-path="url(#lc)"/>
+   <ellipse cx="78" cy="44" rx="11" ry="6.5" transform="rotate(-20 78 44)" fill="var(--knock,#FFFFFF)" clip-path="url(#lc)"/>
+  </symbol>
+  <symbol id="badge-line" viewBox="0 0 120 120">
+   <circle cx="60" cy="60" r="51" fill="none" stroke="var(--disc,#0B0E12)" stroke-width="4.5"/>
+   <path d="M6 70 C30 83 50 85 64 79 C83 72 95 57 114 49" fill="none" stroke="var(--disc,#0B0E12)" stroke-width="4.5" stroke-linecap="round" clip-path="url(#lc)"/>
+   <ellipse cx="78" cy="44" rx="9" ry="5" transform="rotate(-20 78 44)" fill="none" stroke="var(--disc,#0B0E12)" stroke-width="3.5"/>
+  </symbol>
+ </defs>
+</svg>
+
+<div class="wrap">
+
+ <div class="head">
+  <h1>Orca <span>— Logo suite &amp; mockups</span></h1>
+  <div class="mono">F3 · COUNTERSHADE · LOCKUPS + APPLICATIONS</div>
+ </div>
+
+ <!-- ============ LOGO SUITE ============ -->
+ <section class="section">
+  <div class="eyebrow"><h2>Logo suite</h2><span class="rule"></span><span class="n">8 forms · one mark</span></div>
+
+  <div class="grid g-suite">
+
+   <!-- primary -->
+   <div class="card">
+    <div class="stage"><svg class="mark" style="width:104px;height:104px" aria-label="Orca primary mark"><use href="#badge"/></svg></div>
+    <div class="meta"><span class="lab">Primary mark</span><span class="desc">Black disc, white countershade. The anchor for everything.</span></div>
+   </div>
+
+   <!-- wordmark -->
+   <div class="card">
+    <div class="stage"><span class="wm" style="font-size:46px">Orca</span></div>
+    <div class="meta"><span class="lab">Wordmark</span><span class="desc">Schibsted Grotesk 700, tracking −3%.</span></div>
+   </div>
+
+   <!-- horizontal -->
+   <div class="card">
+    <div class="stage">
+     <span class="lk"><svg class="mark" style="width:48px;height:48px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:34px">Orca</span></span>
+    </div>
+    <div class="meta"><span class="lab">Horizontal lockup</span><span class="desc">Web headers, signatures, cards.</span></div>
+   </div>
+
+   <!-- horizontal reversed -->
+   <div class="card">
+    <div class="stage dark">
+     <span class="lk"><svg class="mark" style="width:48px;height:48px;--disc:#fff;--knock:#0A0E14" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:34px">Orca</span></span>
+    </div>
+    <div class="meta"><span class="lab">Horizontal · reversed</span><span class="desc">Dark UI and gradient panels.</span></div>
+   </div>
+
+   <!-- vertical -->
+   <div class="card">
+    <div class="stage">
+     <span class="lk lk-v"><svg class="mark" style="width:62px;height:62px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:28px">Orca</span></span>
+    </div>
+    <div class="meta"><span class="lab">Vertical lockup</span><span class="desc">App headers, posters, profiles.</span></div>
+   </div>
+
+   <!-- monogram -->
+   <div class="card">
+    <div class="stage">
+     <span class="mono-set"><svg class="mark" style="width:42px;height:42px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:48px">rca</span></span>
+    </div>
+    <div class="meta"><span class="lab">Monogram</span><span class="desc">The mark becomes the O. Seal, favicon, stamp.</span></div>
+   </div>
+
+   <!-- single colour -->
+   <div class="card">
+    <div class="stage">
+     <div class="trio">
+      <div class="chip"><svg class="mark" style="width:54px;height:54px" aria-hidden="true"><use href="#badge"/></svg></div>
+      <div class="chip"><svg class="mark" style="width:54px;height:54px;--disc:#0066CC;--knock:#FFFFFF" aria-hidden="true"><use href="#badge"/></svg></div>
+      <div class="chip dk"><svg class="mark" style="width:54px;height:54px;--disc:#FFFFFF;--knock:#0A0E14" aria-hidden="true"><use href="#badge"/></svg></div>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Single colour · black / blue / white</span><span class="desc">One ink each. Markings drop to the surface behind.</span></div>
+   </div>
+
+   <!-- outline -->
+   <div class="card">
+    <div class="stage">
+     <svg class="mark" style="width:64px;height:64px" aria-hidden="true"><use href="#badge-line"/></svg>
+     <div class="chip grad" style="border:0"><svg class="mark" style="width:54px;height:54px;--disc:#fff" aria-hidden="true"><use href="#badge-line"/></svg></div>
+    </div>
+    <div class="meta"><span class="lab">Outline</span><span class="desc">Line contexts, wireframes, technical docs.</span></div>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- ============ MOCKUPS ============ -->
+ <section class="section">
+  <div class="eyebrow"><h2>In the world</h2><span class="rule"></span><span class="n">applications</span></div>
+
+  <div class="grid g-app">
+
+   <!-- app icon -->
+   <div class="card">
+    <div class="stage">
+     <div class="home">
+      <div class="tile t-lg grad"><svg class="mark float" style="width:64px;height:64px" aria-hidden="true"><use href="#badge"/></svg></div>
+      <span class="app-name">Orca</span>
+      <div class="app-row">
+       <div class="tile t-sm grad"><svg class="mark" style="width:34px;height:34px" aria-hidden="true"><use href="#badge"/></svg></div>
+       <span class="app-sub mono">128 · 64 · 40 · 16 ALL LEGIBLE</span>
+      </div>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">App icon</span><span class="desc">Rounded gradient tile, badge, soft lift. Holds down to the favicon.</span></div>
+   </div>
+
+   <!-- social avatars -->
+   <div class="card">
+    <div class="stage">
+     <div style="text-align:center"><div class="grad" style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:9px"><svg class="mark" style="width:62px;height:62px" aria-hidden="true"><use href="#badge"/></svg></div><span class="mono" style="font-size:10px;color:var(--ink40);letter-spacing:.08em">CIRCULAR</span></div>
+     <div style="text-align:center"><div class="grad" style="width:104px;height:104px;border-radius:24px;display:flex;align-items:center;justify-content:center;margin-bottom:9px"><svg class="mark" style="width:62px;height:62px" aria-hidden="true"><use href="#badge"/></svg></div><span class="mono" style="font-size:10px;color:var(--ink40);letter-spacing:.08em">SQUARE</span></div>
+    </div>
+    <div class="meta"><span class="lab">Social avatar</span><span class="desc">Badge only, centred, no wordmark. Reads at 32px.</span></div>
+   </div>
+
+   <!-- business card front -->
+   <div class="card">
+    <div class="stage">
+     <div class="bcard front">
+      <span class="lk"><svg class="mark" style="width:34px;height:34px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:24px">Orca</span></span>
+      <div>
+       <div class="bc-line"></div>
+       <div class="bc-foot"><strong>Maya Sorenson</strong><br>Head of Diagnostics<br>maya@orca.health · orca.health</div>
+      </div>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Business card · front</span><span class="desc">Lockup, blue hairline rule, generous white space.</span></div>
+   </div>
+
+   <!-- business card back -->
+   <div class="card">
+    <div class="stage">
+     <div class="bcard back grad">
+      <svg class="mark float" style="width:62px;height:62px" aria-hidden="true"><use href="#badge"/></svg>
+      <span class="bc-tag">PRECISION MEETS CLARITY</span>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Business card · back</span><span class="desc">Full gradient, centred badge. The countershade reads on blue.</span></div>
+   </div>
+
+   <!-- product UI light -->
+   <div class="card span2">
+    <div class="stage">
+     <div class="screen">
+      <div class="sc-top">
+       <span class="lk"><svg class="mark" style="width:28px;height:28px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:18px">Orca</span></span>
+       <span class="sc-nav"><b>Overview</b> <span>Diagnostics</span> <span>Reports</span></span>
+       <span class="sc-av"></span>
+      </div>
+      <div class="sc-body">
+       <div class="vital">
+        <div class="k">Resting heart rate</div>
+        <div class="v">62<small>bpm</small></div>
+        <svg class="ecg" viewBox="0 0 320 38" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 H56 l8 -2 5 5 7 -16 7 28 6 -14 H150 l8 -2 5 5 7 -16 7 28 6 -14 H320" fill="none" stroke="#0066CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       </div>
+       <div class="sc-side">
+        <div class="stat"><div class="k">HRV</div><div class="v">48 <small style="font-size:12px;color:var(--ink40)">ms</small></div></div>
+        <button class="btn" type="button">View report</button>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Product UI · light</span><span class="desc">Lockup in the header, clinical blue for data and the one primary action.</span></div>
+   </div>
+
+   <!-- product UI dark -->
+   <div class="card span2">
+    <div class="stage dark">
+     <div class="screen dark">
+      <div class="sc-top">
+       <span class="lk"><svg class="mark" style="width:28px;height:28px;--disc:#fff;--knock:#0A0E14" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:18px">Orca</span></span>
+       <span class="sc-nav"><b>Overview</b> <span>Diagnostics</span> <span>Reports</span></span>
+       <span class="sc-av"></span>
+      </div>
+      <div class="sc-body">
+       <div class="vital">
+        <div class="k">Resting heart rate</div>
+        <div class="v">62<small>bpm</small></div>
+        <svg class="ecg" viewBox="0 0 320 38" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 H56 l8 -2 5 5 7 -16 7 28 6 -14 H150 l8 -2 5 5 7 -16 7 28 6 -14 H320" fill="none" stroke="#5EB3FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       </div>
+       <div class="sc-side">
+        <div class="stat"><div class="k">HRV</div><div class="v">48 <small style="font-size:12px;color:#6b7689">ms</small></div></div>
+        <button class="btn" type="button">View report</button>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Product UI · dark</span><span class="desc">Same layout, reversed mark, light blue (#5EB3FF) for accents.</span></div>
+   </div>
+
+   <!-- profile header -->
+   <div class="card span2">
+    <div class="stage" style="padding:clamp(20px,3vw,30px)">
+     <div class="phead grad">
+      <span class="lk"><svg class="mark float" style="width:54px;height:54px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:32px;color:#fff">Orca</span></span>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Profile header · 3:1</span><span class="desc">Reversed lockup with room to breathe on the hero gradient.</span></div>
+   </div>
+
+   <!-- poster -->
+   <div class="card">
+    <div class="stage tall">
+     <div class="poster grad">
+      <svg class="mark float" style="width:46%;max-width:150px" aria-hidden="true"><use href="#badge"/></svg>
+      <span class="tag">Precision meets clarity.</span>
+      <span class="foot">ORCA HEALTH · INTELLIGENT. CALM. TRUSTED.</span>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Poster</span><span class="desc">Hero treatment. Big badge, one line, nothing else.</span></div>
+   </div>
+
+   <!-- letterhead -->
+   <div class="card">
+    <div class="stage tall">
+     <div class="letter">
+      <span class="lk"><svg class="mark" style="width:30px;height:30px" aria-hidden="true"><use href="#badge"/></svg><span class="wm" style="font-size:20px">Orca</span></span>
+      <div class="lt-rule"></div>
+      <div class="lt-bars">
+       <i style="width:90%"></i><i style="width:96%"></i><i style="width:82%"></i><i style="width:94%"></i><i style="width:60%"></i>
+      </div>
+      <div class="lt-foot">ORCA HEALTH · 220 PACIFIC AVE · orca.health</div>
+     </div>
+    </div>
+    <div class="meta"><span class="lab">Letterhead</span><span class="desc">Corner lockup, blueprint grid, blue rule. Quiet and precise.</span></div>
+   </div>
+
+  </div>
+ </section>
+
+ <!-- ============ RULES ============ -->
+ <div class="rules">
+  <div class="do">
+   <h3>Do</h3>
+   <ul>
+    <li>Keep the badge the primary mark, always.</li>
+    <li>Hold the black / white countershade proportion.</li>
+    <li>Use the blue gradient as background only.</li>
+    <li>Reverse to white on dark, never grey.</li>
+   </ul>
+  </div>
+  <div class="dont">
+   <h3>Don't</h3>
+   <ul>
+    <li>Rotate, stretch, or distort the badge.</li>
+    <li>Add shadow or effects inside the mark.</li>
+    <li>Put secondary colour inside the disc.</li>
+    <li>Drop below 16px favicon / 44px touch.</li>
+   </ul>
+  </div>
+ </div>
+
+ <div class="foot-mono">ORCA · COUNTERSHADE SYSTEM · ONE VECTOR, EVERY SURFACE</div>
+
+</div>
+</body>
+</html>
